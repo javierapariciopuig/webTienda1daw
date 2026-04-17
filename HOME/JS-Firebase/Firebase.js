@@ -15,15 +15,12 @@ const firebaseConfig = {
   measurementId: "G-8EY1JZN272"
 };
 
-// Inicializar Firebase UNA sola vez
+// Inicializar Firebase 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-//
-// -------------------------
 //   CARGA DE TEXTOS
-// -------------------------
-//
+
 
 const SUBCOLECCIONES = ["TITULO", "Info-Box", "PRODUCTOS", "Marcas"];
 
@@ -56,11 +53,8 @@ async function cargarTextos() {
   }
 }
 
-//
-// -------------------------
 //   CARGA DE IMÁGENES
-// -------------------------
-//
+
 
 const SUBCOLECCIONES_IMAGENES = [
   "Box-Info",
@@ -88,10 +82,7 @@ async function cargarImagenes() {
             elemento.src = data[campo];
             console.log(`✔ Imagen cargada: ${campo}`);
           }
-
-          // -------------------------
           //   REUTILIZAR IMÁGENES
-          // -------------------------
           if (campo === "VerduraURL") {
             const imgDuplicada = document.getElementById("VerduraURL2");
             if (imgDuplicada) {
