@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <title>Contacto - Grand Slam Market</title>
     <link rel="stylesheet" href="contacto.css">
+    <link rel="stylesheet" href="contacto-dynamic.css">
 </head>
 <body>
-
+      <img id="img-firebase" src="" alt="Imagen de la tienda" style="width:100%; max-width:400px; display:none;">
     <div class="container">
         <header class="header-contacto">
             <div class="top-mail-container">
                 <svg class="svg-mail-header" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </div>
             <div class="title-with-ball">
-                <h1>¡Contacta con Nosotros!</h1>
-                <span class="pelota-header">⚾</span>
+                <h1 id="db-titulo-principal">¡Contacta con Nosotros!</h1>
+                <span id="db-emoji-header" class="pelota-header">⚾</span>
             </div>
-            <p>Estamos aquí para ayudarte. Envíanos tu mensaje y nuestro equipo te responderá en menos de 24 horas.</p>
+            <p id="db-descripcion-principal">Estamos aquí para ayudarte. Envíanos tu mensaje y nuestro equipo te responderá en menos de 24 horas.</p>
         </header>
 
         <div class="contact-grid">
             <section class="form-block">
-                <h2 class="form-title-blue">Envíanos un Mensaje</h2>
-                <form>
-                    <label>Nombre Completo *</label>
-                    <input type="text" placeholder="Tu nombre">
-                    <label>Email *</label>
-                    <input type="email" placeholder="tu@email.com">
-                    <label>Teléfono</label>
-                    <input type="tel" placeholder="+34 600 000 000">
-                    <label>Mensaje *</label>
-                    <textarea rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+                <h2 id="db-form-title" class="form-title-blue">Envíanos un Mensaje</h2>
+                <form id="contactForm">
+                    <label id="lbl-name">Nombre Completo *</label>
+                    <input id="input-name" type="text" name="name" placeholder="Tu nombre" required>
+                    <label id="lbl-email">Email *</label>
+                    <input id="input-email" type="email" name="email" placeholder="tu@email.com" required>
+                    <label id="lbl-phone">Teléfono</label>
+                    <input id="input-phone" type="tel" name="phone" placeholder="+34 600 000 000">
+                    <label id="lbl-message">Mensaje *</label>
+                    <textarea id="input-message" name="message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
                     
-                    <button type="submit" class="btn-enviar">
+                    <div id="formMessage" style="margin: 10px 0; padding: 10px; border-radius: 4px; display: none;"></div>
+                    
+                    <button id="db-btn-enviar" type="submit" class="btn-enviar">
                         <svg class="svg-btn" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                        Enviar Mensaje
+                        <span id="db-btn-text">Enviar Mensaje</span>
                     </button>
                 </form>
             </section>
@@ -43,39 +46,37 @@
                 <div class="info-card bg-blue">
                     <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <div class="info-text">
-                        <h3>Dirección</h3>
-                        <p>C. Maiz, 11,Usera</p>
-                        <p>28026 Madrid, España</p>
+                        <h3 id="title-direccion">Dirección</h3>
+                        <p id="info-direccion">C. Maiz, 11,Usera, 28026 Madrid</p>
                     </div>
                 </div>
 
                 <div class="info-card bg-red">
                     <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     <div class="info-text">
-                        <h3>Teléfono</h3>
-                        <p>+34 613 98 49 65</p>
+                        <h3 id="title-tel">Teléfono</h3>
+                        <p id="info-tel">+34 613 98 49 65</p>
                     </div>
                 </div>
 
                 <div class="info-card bg-green">
                     <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     <div class="info-text">
-                        <h3>Email</h3>
-                        <p>info@grandslammarket.com</p>
-                        <p>ventas@grandslammarket.com</p>
+                        <h3 id="title-email">Email</h3>
+                        <p id="info-email">info@grandslammarket.com</p>
                     </div>
                 </div>
 
                 <div class="info-card bg-purple">
                     <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                     <div class="info-text">
-                        <h3>Horario</h3>
-                        <p>Lunes-Viernes 8:00-21:00</p>
+                        <h3 id="title-horario">Horario</h3>
+                        <p id="info-horario">Lunes-Viernes 8:00-21:00</p>
                     </div>
                 </div>
 
               <a href="https://www.google.com/maps/search/?api=1&query=Calle+del+Maiz+11+28045+Madrid" target="_blank" class="mapa-visual-container border-blue">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.563724361555!2d-3.69345!3d40.396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4226260a95e09f%3A0x6d9f3b1b1b1b1b1b!2sCalle%20del%20Ma%C3%ADz%2C%2011%2C%2028045%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe id="db-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.563724361555!2d-3.69345!3d40.396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4226260a95e09f%3A0x6d9f3b1b1b1b1b1b!2sCalle%20del%20Ma%C3%ADz%2C%2011%2C%2028045%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
                     <div class="capa-clic"></div>
                 </a>
             </aside>
@@ -83,29 +84,318 @@
 
         <section class="faq-container-general">
             <div class="faq-header-inline">
-                <h2 class="faq-main-title">Preguntas Frecuentes</h2>
-                <span class="pelota-faq">⚾</span>
+                <h2 id="db-faq-title" class="faq-main-title">Preguntas Frecuentes</h2>
+                <span id="db-emoji-faq" class="pelota-faq">⚾</span>
             </div>
             <div class="faq-grid">
                 <div class="faq-item-white">
-                    <h4 class="q-title">¿Hacéis entregas a domicilio?</h4>
-                    <p>Sí, realizamos entregas en toda la zona metropolitana de Madrid. Pedidos mínimos de 30€. ¡Gratis para compras superiores a 60€!</p>
+                    <h4 id="faq-q1" class="q-title">¿Hacéis entregas a domicilio?</h4>
+                    <p id="faq-a1">Sí, realizamos entregas en toda la zona metropolitana de Madrid. Pedidos mínimos de 30€. ¡Gratis para compras superiores a 60€!</p>
                 </div>
                 <div class="faq-item-white">
-                    <h4 class="q-title">¿Tenéis productos orgánicos?</h4>
-                    <p>Contamos con una amplia selección de productos orgánicos y ecológicos certificados en todas las categorías.</p>
+                    <h4 id="faq-q2" class="q-title">¿Tenéis productos orgánicos?</h4>
+                    <p id="faq-a2">Contamos con una amplia selección de productos orgánicos y ecológicos certificados en todas las categorías.</p>
                 </div>
                 <div class="faq-item-white">
-                    <h4 class="q-title">¿Cómo me uno al programa de puntos?</h4>
-                    <p>Solo necesitas registrarte con tus datos y automáticamente empezarás a acumular puntos con cada compra. ¡Es gratis!</p>
+                    <h4 id="faq-q3" class="q-title">¿Cómo me uno al programa de puntos?</h4>
+                    <p id="faq-a3">Solo necesitas registrarte con tus datos y automáticamente empezarás a acumular puntos con cada compra. ¡Es gratis!</p>
                 </div>
                 <div class="faq-item-white">
-                    <h4 class="q-title">¿Aceptáis devoluciones?</h4>
-                    <p>Garantizamos la calidad de todos nuestros productos. Si no estás satisfecho, realizamos devoluciones sin preguntas.</p>
+                    <h4 id="faq-q4" class="q-title">¿Aceptáis devoluciones?</h4>
+                    <p id="faq-a4">Garantizamos la calidad de todos nuestros productos. Si no estás satisfecho, realizamos devoluciones sin preguntas.</p>
                 </div>
             </div>
         </section>
     </div>
 
+<script type="module">
+    // Firebase v9 Modular SDK - Dynamic Content Loading
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getFirestore, doc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    import { firebaseConfig } from "../firebase-config.js";
+
+    console.log("Intentando conectar a Firebase...");
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Función para mostrar errores en pantalla
+    function mostrarErrorEnPantalla(mensaje) {
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 9999;
+            max-width: 400px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        `;
+        errorDiv.innerHTML = `<strong>ERROR FIREBASE:</strong><br>${mensaje}`;
+        document.body.appendChild(errorDiv);
+        
+        // Auto-eliminar después de 10 segundos
+        setTimeout(() => {
+            if (errorDiv.parentNode) {
+                errorDiv.parentNode.removeChild(errorDiv);
+            }
+        }, 10000);
+    }
+
+    async function cargarDatosDesdeFirebase() {
+        try {
+            console.log('Cargando datos dinámicos desde Firestore...');
+            
+            // Traer textos de contacto
+            const textosRef = doc(db, "Contact", "contact_texts");
+            const textosSnap = await getDoc(textosRef);
+
+            if (textosSnap.exists()) {
+                const doc = textosSnap;
+                console.log('Documento contact_texts encontrado');
+                
+                // Actualizar título principal
+                if (doc.data().titulo_principal && document.getElementById('db-titulo-principal')) {
+                    document.getElementById('db-titulo-principal').textContent = doc.data().titulo_principal;
+                    console.log('Título principal actualizado:', doc.data().titulo_principal);
+                }
+                
+                // Actualizar descripción principal
+                if (doc.data().desc_principal && document.getElementById('db-descripcion-principal')) {
+                    document.getElementById('db-descripcion-principal').textContent = doc.data().desc_principal;
+                    console.log('Descripción principal actualizada:', doc.data().desc_principal);
+                }
+                
+                // Actualizar título del formulario
+                if (doc.data().form_title && document.getElementById('db-form-title')) {
+                    document.getElementById('db-form-title').textContent = doc.data().form_title;
+                    console.log('Título del formulario actualizado:', doc.data().form_title);
+                }
+                
+                // Actualizar título de FAQs
+                if (doc.data().faq_title && document.getElementById('db-faq-title')) {
+                    document.getElementById('db-faq-title').textContent = doc.data().faq_title;
+                    console.log('Título de FAQs actualizado:', doc.data().faq_title);
+                }
+                
+                // Actualizar labels del formulario
+                if (doc.data().lbl_name && document.getElementById('lbl-name')) {
+                    document.getElementById('lbl-name').textContent = doc.data().lbl_name;
+                    console.log('Label nombre actualizado:', doc.data().lbl_name);
+                }
+                
+                if (doc.data().lbl_email && document.getElementById('lbl-email')) {
+                    document.getElementById('lbl-email').textContent = doc.data().lbl_email;
+                    console.log('Label email actualizado:', doc.data().lbl_email);
+                }
+                
+                if (doc.data().lbl_phone && document.getElementById('lbl-phone')) {
+                    document.getElementById('lbl-phone').textContent = doc.data().lbl_phone;
+                    console.log('Label teléfono actualizado:', doc.data().lbl_phone);
+                }
+                
+                if (doc.data().lbl_message && document.getElementById('lbl-message')) {
+                    document.getElementById('lbl-message').textContent = doc.data().lbl_message;
+                    console.log('Label mensaje actualizado:', doc.data().lbl_message);
+                }
+                
+                // Actualizar emojis
+                if (doc.data().emoji_header && document.getElementById('db-emoji-header')) {
+                    document.getElementById('db-emoji-header').textContent = doc.data().emoji_header;
+                    console.log('Emoji header actualizado:', doc.data().emoji_header);
+                }
+                
+                if (doc.data().emoji_faq && document.getElementById('db-emoji-faq')) {
+                    document.getElementById('db-emoji-faq').textContent = doc.data().emoji_faq;
+                    console.log('Emoji FAQ actualizado:', doc.data().emoji_faq);
+                }
+                
+                // Actualizar texto del botón (con fallback)
+                if (document.getElementById('db-btn-text')) {
+                    if (doc.data().btn_enviar && doc.data().btn_enviar.trim() !== '') {
+                        document.getElementById('db-btn-text').textContent = doc.data().btn_enviar;
+                        console.log('Botón enviar actualizado:', doc.data().btn_enviar);
+                    }
+                    // Si no hay valor en Firebase, mantiene el texto del HTML
+                    else {
+                        console.log('Botón enviar mantiene valor por defecto del HTML');
+                    }
+                }
+                
+                // Actualizar placeholders de inputs
+                if (doc.data().placeholder_name && document.getElementById('input-name')) {
+                    document.getElementById('input-name').placeholder = doc.data().placeholder_name;
+                    console.log('Placeholder nombre actualizado:', doc.data().placeholder_name);
+                }
+                
+                if (doc.data().placeholder_email && document.getElementById('input-email')) {
+                    document.getElementById('input-email').placeholder = doc.data().placeholder_email;
+                    console.log('Placeholder email actualizado:', doc.data().placeholder_email);
+                }
+                
+                if (doc.data().placeholder_phone && document.getElementById('input-phone')) {
+                    document.getElementById('input-phone').placeholder = doc.data().placeholder_phone;
+                    console.log('Placeholder teléfono actualizado:', doc.data().placeholder_phone);
+                }
+                
+                if (doc.data().placeholder_message && document.getElementById('input-message')) {
+                    document.getElementById('input-message').placeholder = doc.data().placeholder_message;
+                    console.log('Placeholder mensaje actualizado:', doc.data().placeholder_message);
+                }
+                
+                // Actualizar títulos de las tarjetas de información
+                if (doc.data().title_direccion && document.getElementById('title-direccion')) {
+                    document.getElementById('title-direccion').textContent = doc.data().title_direccion;
+                    console.log('Título dirección actualizado:', doc.data().title_direccion);
+                }
+                
+                if (doc.data().title_tel && document.getElementById('title-tel')) {
+                    document.getElementById('title-tel').textContent = doc.data().title_tel;
+                    console.log('Título teléfono actualizado:', doc.data().title_tel);
+                }
+                
+                if (doc.data().title_email && document.getElementById('title-email')) {
+                    document.getElementById('title-email').textContent = doc.data().title_email;
+                    console.log('Título email actualizado:', doc.data().title_email);
+                }
+                
+                if (doc.data().title_horario && document.getElementById('title-horario')) {
+                    document.getElementById('title-horario').textContent = doc.data().title_horario;
+                    console.log('Título horario actualizado:', doc.data().title_horario);
+                }
+                
+                // Actualizar dirección
+                if (doc.data().direccion && document.getElementById('info-direccion')) {
+                    document.getElementById('info-direccion').textContent = doc.data().direccion;
+                    console.log('Dirección actualizada:', doc.data().direccion);
+                }
+                
+                // Actualizar email
+                if (doc.data().email_contacto && document.getElementById('info-email')) {
+                    document.getElementById('info-email').textContent = doc.data().email_contacto;
+                    console.log('Email actualizado:', doc.data().email_contacto);
+                }
+                
+                // Actualizar teléfono
+                if (doc.data().tel_contacto && document.getElementById('info-tel')) {
+                    document.getElementById('info-tel').textContent = doc.data().tel_contacto;
+                    console.log('Teléfono actualizado:', doc.data().tel_contacto);
+                }
+                
+                // Actualizar horario
+                if (doc.data().horario_tienda && document.getElementById('info-horario')) {
+                    document.getElementById('info-horario').textContent = doc.data().horario_tienda;
+                    console.log('Horario actualizado:', doc.data().horario_tienda);
+                }
+                
+                // Actualizar mapa
+                if (doc.data().ubicacion_mapa && document.getElementById('db-map')) {
+                    document.getElementById('db-map').src = doc.data().ubicacion_mapa;
+                    console.log('Mapa actualizado');
+                }
+                
+                // Mensaje de confirmación
+                console.log("DATOS CARGADOS: " + doc.data().direccion);
+                console.log('Todos los textos de contacto actualizados correctamente');
+            } else {
+                const errorMsg = 'No se encontró el documento "contact_texts" en la colección "Contact"';
+                console.error('ERROR:', errorMsg);
+                console.error('Verifica que:');
+                console.error('1. La colección "Contact" exista en Firestore');
+                console.error('2. El documento "contact_texts" exista');
+                console.error('3. Las reglas de seguridad permitan la lectura');
+                mostrarErrorEnPantalla(errorMsg);
+            }
+            
+        } catch (error) {
+            console.error('Error al cargar datos desde Firebase:', error);
+            console.error('Error completo:', error.message);
+            console.error('Código de error:', error.code);
+            mostrarErrorEnPantalla(`Error de Firebase: ${error.message} (Código: ${error.code})`);
+        }
+    }
+
+    // Form submission handler with Firebase v9
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formMessage = document.getElementById('formMessage');
+        const submitButton = document.querySelector('.btn-enviar');
+        
+        // Get form values
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Disable submit button and show loading
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<svg class="svg-btn" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/></svg> Enviando...';
+        
+        try {
+            // Save to Firestore with v9 syntax
+            const docRef = await addDoc(collection(db, 'contacts'), {
+                ...formData,
+                status: 'pending',
+                createdAt: new Date(),
+                source: 'web-form'
+            });
+            
+            // Show success message
+            formMessage.style.display = 'block';
+            formMessage.style.backgroundColor = '#d4edda';
+            formMessage.style.color = '#155724';
+            formMessage.style.border = '1px solid #c3e6cb';
+            formMessage.innerHTML = '✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.';
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            console.log('Contact form saved with ID:', docRef.id);
+            
+        } catch (error) {
+            console.error('Error saving contact form:', error);
+            
+            // Show error message
+            formMessage.style.display = 'block';
+            formMessage.style.backgroundColor = '#f8d7da';
+            formMessage.style.color = '#721c24';
+            formMessage.style.border = '1px solid #f5c6cb';
+            formMessage.innerHTML = '❌ Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<svg class="svg-btn" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Enviar Mensaje';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
+    });
+
+    // Esperar a que el DOM esté completamente cargado antes de cargar los datos
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pequeña espera para asegurar que Firebase esté inicializado
+        setTimeout(() => {
+            cargarDatosDesdeFirebase();
+        }, 500);
+    });
+
+    // También intentar cargar los datos inmediatamente por si el DOM ya está listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', cargarDatosDesdeFirebase);
+    } else {
+        setTimeout(cargarDatosDesdeFirebase, 100);
+    }
+</script>
 </body>
 </html>
