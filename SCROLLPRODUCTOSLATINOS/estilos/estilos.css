@@ -103,3 +103,6 @@ body {
   align-items: center;
   text-align: center;
 }
+body {
+  padding-top: 90px;
+}

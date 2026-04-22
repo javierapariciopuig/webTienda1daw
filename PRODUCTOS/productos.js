@@ -1,6 +1,7 @@
 // Script para conectar HTML con Firebase - Estructura específica con IDs
 import { onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+
 class ProductosFirebase {
     constructor() {
         this.init();
@@ -86,7 +87,9 @@ class ProductosFirebase {
             { id: 2, nombre: 'panaderia', docId: 'panaderia' },
             { id: 3, nombre: 'limpieza', docId: 'limpieza' },
             { id: 4, nombre: 'higiene', docId: 'higiene' },
-            { id: 5, nombre: 'bebidas', docId: 'bebidas' }
+            { id: 5, nombre: 'bebidas', docId: 'bebidas' },
+            { id: 6, nombre: 'snacks', docId: 'snacks'},
+            { id: 7, nombre: 'lacteos', docId: 'lacteos'}
         ];
 
         for (const categoria of categorias) {

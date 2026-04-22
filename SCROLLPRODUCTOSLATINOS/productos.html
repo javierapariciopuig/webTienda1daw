@@ -7,14 +7,29 @@
   <link rel="stylesheet" href="/webTienda1daw/SCROLLPRODUCTOSLATINOS/estilos/estilos.css">
 </head>
 <body>
+<div id="header"></div>
 
-  <a class="volver" href="scrollproductoslatinos.html">← Volver a Productos</a>
+  <a class="volver" href="/webTienda1daw/PRODUCTOSLATINOS/productoslatinos.html">← Volver a Productos</a>
 
   <h1 id="titulo-categoria"></h1>
   <p class="descripcion-categoria">Descubre nuestros productos Latinos de la mejor calidad.</p>
 
   <div class="contenedor-productos" id="contenedor-productos"></div>
+  <div id="footer"></div>
+
+<script>
+  fetch("/webTienda1daw/Footer/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
 
   <script type="module" src="/webTienda1daw/SCROLLPRODUCTOSLATINOS/JS/productoslatinos.js"></script>
+<script>
+  fetch("/webTienda1daw/HEADER/header.html")
+    .then(r => r.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+</script>
 </body>
 </html>

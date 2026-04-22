@@ -1,0 +1,344 @@
+.main-footer {
+    /* Fondo dinámico desde Firebase con fallback */
+    background: linear-gradient(to right, #1a237e, #b71c1c, #1a237e);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgb(255, 255, 255);
+    padding: 60px 20px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-image 0.5s ease;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr; /* Distribución de columnas */
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-logo h3 {
+    margin: 0;
+}
+
+.icon-trophy {
+    font-size: 1.5rem;
+}
+
+.slogan {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 15px !important;
+    font-size: 0.95rem;
+    text-align: left !important;
+    white-space: nowrap !important;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    text-align: center !important;
+}
+
+.footer-bottom hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Estilos para iconos dinámicos */
+.icon-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.icon-img:hover {
+    opacity: 1;
+}
+
+.icon-location {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.icon-location:hover {
+    opacity: 1;
+}
+
+/* Iconos específicos por ID con tamaños exactos */
+#footer-icon-location {
+    width: 35px !important;
+    height: 35px !important;
+    object-fit: contain !important;
+}
+
+#footer-icon-phone, #footer-icon-email {
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: contain !important;
+}
+
+.icon-trophy-img {
+    width: 55px !important;
+    height: 55px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    display: block !important;
+    transition: transform 0.3s ease;
+}
+
+.icon-trophy-img:hover {
+    transform: scale(1.1);
+}
+
+
+.icon-img:hover {
+    opacity: 1;
+}
+
+.footer-email-link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-email-link:hover {
+    color: #ff6b35;
+    text-decoration: underline;
+}
+
+/* Responsivo para móviles (Mobile First) */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-column:nth-child(1) {
+        grid-column: 1 / -1;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 15px 20px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .footer-column {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    .slogan {
+        font-size: 0.9rem;
+        text-align: center;
+        line-height: 1.5;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .contact-list li {
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        transition: background 0.3s ease;
+    }
+    
+    .contact-list li:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .icon-img {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    .footer-bottom {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 30px 10px 15px;
+    }
+    
+    .footer-container {
+        gap: 20px;
+    }
+    
+    .footer-column {
+        padding: 15px;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1rem;
+    }
+    
+    .slogan {
+        font-size: 0.85rem;
+    }
+    
+    .footer-column h3 {
+        font-size: 1rem;
+    }
+    
+    .contact-list li {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+    
+    .icon-trophy-img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .icon-img {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Animaciones y transiciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-column {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.footer-column:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.footer-column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.footer-column:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Efectos hover mejorados */
+.footer-column:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+.contact-list li:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 999;
+}

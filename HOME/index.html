@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiringuito de María y José</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+
+<div id="header"></div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img id="Estadio" src="" class="hero-bg" alt="Estadio">
+        <div class="hero-content">
+            <h1 id="tittle"></h1>
+            <p id="Descripcion-tittle"></p>
+            <a id="Texto-Boton" href="#grinder" class="btn"></a>
+        </div>
+    </div>
+
+    <!-- INFO BOXES -->
+    <section class="info-boxes">
+        <div class="box">
+            <div class="icon"><img id="InsigniaURL" src="" alt="insignia"></div>
+            <h2 id="TituloBox1" class="box-titulo"></h2><h3 id="SubtituloBox1" class="box-subtitulo"></h3>
+        </div>
+
+        <div class="box">
+            <div class="icon"><img  id="GraficaURL" src="" alt="grafica"></div>
+            <h2 id="TituloBox2" class="box-titulo"></h2><h3 id="SubTituloBox2" class="box-subtitulo"></h3>
+        </div>
+
+        <div class="box">
+            <div class="icon"><img id="EstrellaURL" src="" alt="estrella"></div>
+            <h2 id="TituloBox3" class="box-titulo"></h2><h3 id="SubtituloBox3" class="box-subtitulo"></h3>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="productos">
+        <h2 id="ProductosTittle"></h2>
+        <p id="SubtituloProductos" class="subtitulo"></p>
+
+        <div id="grinder" class="productos-grid">
+
+            <!-- Producto 1 -->
+            <div class="producto">
+                <span id="Marca1" class="tag home"></span>
+                <img id="VerduraURL" src="" alt="Verduras Frescas">
+                <h5 id="CategoriaProducto1" ></h5>
+                <h3 id="NombreProducto1"></h3>
+                <p id="DescripcionProducto1"></p>
+                <span id="PrecioProducto1"class="precio"></span>
+               <!--<button class="btn-add">Añadir</button>No se si se va a acabar poniendo-->
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto">
+                <span id="Marca2" class="tag triple" ></span>
+                <img id="FrutaURL" src="" alt="Frutas Tropicales">
+                <h5 id="CategoriaProducto2"></h5>
+                <h3 id="NombreProducto2"></h3>
+                <p id="DescripcionProducto2"></p>
+                <span id="PrecioProducto2" class="precio"></span>
+                <!--<button class="btn-add">Añadir</button>No se si se va a acabar poniendo-->
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto">
+                <span id="Marca3" class="tag strike" ></span>
+                <img id="PanURL" src="" alt="Panadería Artesanal">
+                <h5 id="CategoriaProducto3"></h5>
+                <h3 id="NombreProducto3"></h3>
+                <p id="DescripcionProducto3"></p>
+                <span id="PrecioProducto3" class="precio"></span>
+                 <!--<button class="btn-add">Añadir</button>No se si se va a acabar poniendo-->
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto">
+                <span id="Marca4" class="tag triple" ></span>
+                <img id="QuesoURL" src="" alt="Queso">
+                <h5 id="CategoriaProducto4"></h5>
+                <h3 id="NombreProducto4"></h3>
+                <p id="DescripcionProducto4"></p>
+                <span id="PrecioProducto4" class="precio"></span>
+               <!-- <button class="btn-add">Añadir</button>No se si se va a acabar poniendo-->
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto">
+                <span id="Marca5" class="tag strike" ></span>
+                <img id="CarneURL" src="" alt="Carne">
+                <h5 id="CategoriaProducto5"></h5>
+                <h3 id="NombreProducto5"></h3>
+                <p id="DescripcionProducto5"></p>
+                <span id="PrecioProducto5" class="precio"></span>
+                <!--<button class="btn-add">Añadir</button>No se si se va a acabar poniendo-->
+            </div>
+              <!-- Producto 6 -->
+            <div class="producto">
+                <span id="Marca6" class="tag home" ></span>
+                <img id="VerduraURL2" src="Multimedia/Productos/Verduras.jpeg" alt="Verduras Organicas">
+                <h5 id="CategoriaProducto6"></h5>
+                <h3 id="NombreProducto6"></h3>
+                <p id="DescripcionProducto6"></p>
+                <span id="PrecioProducto6" class="precio"></span>
+               <!-- <button class="btn-add">Añadir</button> No se si se va a acabar poniendo-->
+            </div>
+
+        </div>
+    </section>
+<div id="footer"></div>
+
+<script>
+  fetch("/webTienda1daw/Footer/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+
+ <script type="module" src="/webTienda1daw/HOME/JS-Firebase/Firebase.js"></script>
+<script>
+  fetch("/webTienda1daw/HEADER/header.html")
+    .then(r => r.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+</script>
+
+
+
+</body>
+</html>

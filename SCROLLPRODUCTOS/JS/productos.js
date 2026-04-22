@@ -24,7 +24,7 @@ const contenedor = document.getElementById("contenedor-productos");
 // Mapa de subcolecciones según tu Firestore REAL
 const MAPA_SUBCOLECCIONES = {
   alimentacion: ["alimentacion"],
-  Bebida: ["Alcoholicas", "NoAlcoholicas"],
+  Bebidas: ["Alcoholicas", "NoAlcoholicas"],
   Higiene: ["Champú","Geles","PastaDeDientes", "Toallitas"],
   Lacteos: ["Leches","Queso","Yogurt"],
   Limpieza: ["Detergentes","Lejias","LimpiaCristales","Suavizantes"],

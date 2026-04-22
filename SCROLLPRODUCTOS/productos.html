@@ -8,13 +8,28 @@
 </head>
 <body>
 
-  <a class="volver" href="scrollproductos.html">← Volver a Productos</a>
+  <div id="header"></div>
+
+  <a class="volver" href="/webTienda1daw/PRODUCTOS/productos.html">← Volver a Productos</a>
 
   <h1 id="titulo-categoria"></h1>
   <p class="descripcion-categoria">Descubre nuestros productos.</p>
 
   <div class="contenedor-productos" id="contenedor-productos"></div>
+  <div id="footer"></div>
 
   <script type="module" src="/webTienda1daw/SCROLLPRODUCTOS/JS/productos.js"></script>
+  <script>
+  fetch("/webTienda1daw/HEADER/header.html")
+    .then(r => r.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+</script>
+<script>
+  fetch("/webTienda1daw/Footer/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
 </body>
 </html>

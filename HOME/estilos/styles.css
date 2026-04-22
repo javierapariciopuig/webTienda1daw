@@ -17,6 +17,7 @@
     text-align: center;
     color: white;
     padding-bottom: 80px;
+    margin-top: 40px;
 }
 
 .hero-bg {
@@ -29,7 +30,7 @@
 
 .hero-content {
     position: relative;
-    max-width: 1350px;
+    max-width: 1480px;
     padding: 20px;
     
 }
@@ -204,4 +205,8 @@
 
 .btn-add:hover {
     background: #16324f;
+}
+
+body{
+    padding-bottom: 100px;
 }
