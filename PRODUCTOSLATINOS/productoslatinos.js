@@ -250,9 +250,9 @@ class ProductosLatinosFirebase {
 
             // Actualizar texto de calidad
             const textoElement = document.getElementById('SubtituloCalidad1');
-            if (textoElement && datos.TextoCalidad) {
-                textoElement.textContent = datos.TextoCalidad;
-                console.log('Texto de calidad actualizado:', datos.TextoCalidad);
+            if (textoElement && datos.SubtituloCalidad) {
+                textoElement.textContent = datos.SubtituloCalidad;
+                console.log('Subtítulo de calidad actualizado:', datos.SubtituloCalidad);
             }
 
             // Efecto visual de actualización

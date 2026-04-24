@@ -4,78 +4,101 @@
     <meta charset="UTF-8">
     <title>Contacto - Grand Slam Market</title>
     <link rel="stylesheet" href="/webTienda1daw/Contacto/EstilosContacto/contacto.css">
-    <link rel="stylesheet" href="/webTienda1daw/Contacto/EstilosContacto/contacto-dynamic.css">
+   
 </head>
 <body>
     <div id="header"></div>
     <div>
-      <img id="img-firebase" src="" alt="Imagen de la tienda" style="width:100%; max-width:400px; display:none;">
+      <img id="img_firebase" src="" alt="Imagen de la tienda" style="width:100%; max-width:400px; display:none;">
     </div>
     <div class="container">
         <div class="header-contacto">
             <div class="top-mail-container">
-                <img id="img-mail-header" src="" alt="Mail Header" class="svg-mail-header">
+                <img id="url_icono_email" src="" alt="" class="svg-mail-header">
             </div>
             <div class="title-with-ball">
-                <h1 id="db-titulo-principal">¡Contacta con Nosotros!</h1>
-                <img id="img-pelota" src="" alt="Pelota" class="pelota-header">
+                <h1 id="titulo_principal"></h1>
             </div>
-            <p id="db-descripcion-principal">Estamos aquí para ayudarte. Envíanos tu mensaje y nuestro equipo te responderá en menos de 24 horas.</p>
+            <p id="desc_principal"></p>
         </div>
     </div>
 
         <div class="contact-grid">
             <section class="form-block">
-                <h2 id="db-form-title" class="form-title-blue">Envíanos un Mensaje</h2>
+                <h2 id="form_title" class="form-title-blue"></h2>
                 <form id="contactForm">
-                    <label id="lbl-name">Nombre Completo *</label>
-                    <input id="input-name" type="text" name="name" placeholder="Tu nombre" required>
-                    <label id="lbl-email">Email *</label>
-                    <input id="input-email" type="email" name="email" placeholder="tu@email.com" required>
-                    <label id="lbl-phone">Teléfono</label>
-                    <input id="input-phone" type="tel" name="phone" placeholder="+34 600 000 000">
-                    <label id="lbl-message">Mensaje *</label>
-                    <textarea id="input-message" name="message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    <label id="lbl_name"></label>
+                    <input id="input_name" type="text" name="name" placeholder="Tu nombre" required>
+                    <label id="lbl_email"></label>
+                    <input id="input_email" type="email" name="email" placeholder="tu@email.com" required>
+                    <label id="lbl_phone"></label>
+                    <input id="input_phone" type="tel" name="phone" placeholder="+34 600 000 000">
+                    <label id="lbl_message"></label>
+                    <textarea id="input_message" name="message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
                     
                     <div id="formMessage" style="margin: 10px 0; padding: 10px; border-radius: 4px; display: none;"></div>
                     
-                    <button id="db-btn-enviar" type="submit" class="btn-enviar">
-                        <img id="img-btn-enviar" src="" alt="Enviar" class="svg-btn">
-                        <span id="db-btn-text">Enviar Mensaje</span>
+                    <button id="" type="submit" class="btn-enviar">
+                        <span id="btn_enviar"></span>
                     </button>
                 </form>
             </section>
+            <!--SCRIPT PARA ENVIAR CORREO-->
+            <script>
+                document.getElementById("contactForm").addEventListener("submit", function(e) {
+                 e.preventDefault();
+
+                const nombre = document.getElementById("input_name").value;
+                const email = document.getElementById("input_email").value;
+                const telefono = document.getElementById("input_phone").value;
+                const mensaje = document.getElementById("input_message").value;
+
+                const subject = encodeURIComponent("Nuevo mensaje de " + nombre);
+
+            const body = encodeURIComponent(
+            "Nombre: " + nombre + "\n" +
+            "Email: " + email + "\n" +
+            "Teléfono: " + telefono + "\n\n" +
+            "Mensaje:\n" + mensaje
+            );
+
+            const mailtoLink = `mailto:info@grandslammarket.com?subject=${subject}&body=${body}`;
+
+            window.open(mailtoLink, "_blank");
+            });
+            </script>
+
 
             <aside class="info-sidebar">
                 <div class="info-card bg-blue">
-                    <img id="img-lugar" src="" alt="Lugar" class="icon-svg icon-style">
+                    <img id="url_icono_lugar" src="" alt="" class="icon-svg icon-style">
                     <div class="info-text">
-                        <h3 id="title-direccion">Dirección</h3>
-                        <p id="info-direccion">C. Maiz, 11,Usera, 28026 Madrid</p>
+                        <h3 id="title_direccion"></h3>
+                        <p id="info-direccion"></p>
                     </div>
                 </div>
 
                 <div class="info-card bg-red">
-                    <img id="img-tel" src="" alt="Teléfono" class="icon-svg icon-style">
+                    <img id="url_icono_tel " src="" alt="" class="icon-svg icon-style">
                     <div class="info-text">
-                        <h3 id="title-tel">Teléfono</h3>
-                        <p id="info-tel">+34 613 98 49 65</p>
+                        <h3 id="title_tel"></h3>
+                        <p id="info_tel"></p>
                     </div>
                 </div>
 
                 <div class="info-card bg-green">
-                    <img id="img-email-card" src="" alt="Email" class="icon-svg icon-style">
+                    <img id="url_icono_email_blanco" src="" alt="" class="icon-svg icon-style">
                     <div class="info-text">
-                        <h3 id="title-email">Email</h3>
-                        <p id="info-email">info@grandslammarket.com</p>
+                        <h3 id="title_email"></h3>
+                        <p id="info_email"></p>
                     </div>
                 </div>
 
                 <div class="info-card bg-purple">
-                    <img id="img-horario" src="" alt="Horario" class="icon-svg icon-style">
+                    <img id="url_icono_horario " src="" alt="" class="icon-svg icon-style">
                     <div class="info-text">
-                        <h3 id="title-horario">Horario</h3>
-                        <p id="info-horario">Lunes-Viernes 8:00-21:00</p>
+                        <h3 id="title_horario"></h3>
+                        <p id="info_horario"></p>
                     </div>
                 </div>
 
@@ -88,545 +111,37 @@
 
         <section class="faq-container-general">
             <div class="faq-header-inline">
-                <h2 id="db-faq-title" class="faq-main-title">Preguntas Frecuentes</h2>
-                <img id="img-pelota-faq" src="" alt="Pelota FAQ" class="pelota-faq">
+                <h2 id="faq_title" class="faq-main-title"></h2>
             </div>
             <div class="faq-grid">
                 <div class="faq-item-white">
-                    <h4 id="faq-q1" class="q-title">¿Hacéis entregas a domicilio?</h4>
-                    <p id="faq-a1">Sí, realizamos entregas en toda la zona metropolitana de Madrid. Pedidos mínimos de 30€. ¡Gratis para compras superiores a 60€!</p>
+                    <h4 id="faq_q1" class="q-title"></h4>
+                    <p id="faq_a1"></p>
                 </div>
                 <div class="faq-item-white">
-                    <h4 id="faq-q2" class="q-title">¿Tenéis productos orgánicos?</h4>
-                    <p id="faq-a2">Contamos con una amplia selección de productos orgánicos y ecológicos certificados en todas las categorías.</p>
+                    <h4 id="faq_q2" class="q-title"></h4>
+                    <p id="faq_a2"></p>
                 </div>
                 <div class="faq-item-white">
-                    <h4 id="faq-q3" class="q-title">¿Cómo me uno al programa de puntos?</h4>
-                    <p id="faq-a3">Solo necesitas registrarte con tus datos y automáticamente empezarás a acumular puntos con cada compra. ¡Es gratis!</p>
+                    <h4 id="faq_q3" class="q-title"></h4>
+                    <p id="faq_a3"></p>
                 </div>
                 <div class="faq-item-white">
-                    <h4 id="faq-q4" class="q-title">¿Aceptáis devoluciones?</h4>
-                    <p id="faq-a4">Garantizamos la calidad de todos nuestros productos. Si no estás satisfecho, realizamos devoluciones sin preguntas.</p>
+                    <h4 id="faq_q4" class="q-title"></h4>
+                    <p id="faq_a4"></p>
                 </div>
             </div>
         </section>
     </div>
     <div id="footer"></div>
+    <script type="module" src="/webTienda1daw/Contacto/JS-Contacto/firestorecontacto.js"></script>
 
-<script type="module">
-    // Firebase v9 Modular SDK - Dynamic Content Loading
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-    import { getFirestore, doc, getDoc, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-    import { firebaseConfig } from "../firebase-config.js";
-
-    console.log("Intentando conectar a Firebase...");
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // Función para mostrar errores en pantalla
-    function mostrarErrorEnPantalla(mensaje) {
-        const errorDiv = document.createElement('div');
-        errorDiv.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            padding: 15px;
-            border-radius: 5px;
-            z-index: 9999;
-            max-width: 400px;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        `;
-        errorDiv.innerHTML = `<strong>ERROR FIREBASE:</strong><br>${mensaje}`;
-        document.body.appendChild(errorDiv);
-        
-        // Auto-eliminar después de 10 segundos
-        setTimeout(() => {
-            if (errorDiv.parentNode) {
-                errorDiv.parentNode.removeChild(errorDiv);
-            }
-        }, 10000);
-    }
-
-    function cargarDatosDesdeFirebase() {
-        console.log('Configurando listeners dobles...');
-        
-        // === LISTENER 1: TEXTOS desde Contact/contact_texts ===
-        const textosRef = doc(db, "Contact", "contact_texts");
-        onSnapshot(textosRef, (textosSnap) => {
-            if (textosSnap.exists()) {
-                const data = textosSnap.data();
-                console.log('Documento Contact/contact_texts encontrado (textos)');
-                console.log("Campos de textos recibidos:", data);
-                console.log('=== TODOS LOS CAMPOS DISPONIBLES EN TEXTOS ===');
-                console.log('Nombres de campos:', Object.keys(data));
-                console.log('¿Existen campos title_*?', {
-                    title_direccion: !!data.title_direccion,
-                    title_tel: !!data.title_tel,
-                    title_email: !!data.title_email,
-                    title_horario: !!data.title_horario
-                });
-                
-                // === ACTUALIZAR TEXTOS ===
-                
-                // Título principal
-                if (data.titulo_principal && document.getElementById('db-titulo-principal')) {
-                    document.getElementById('db-titulo-principal').textContent = data.titulo_principal;
-                    console.log('Título principal actualizado');
-                } else {
-                    console.log("Falla el campo: titulo_principal");
-                }
-                
-                // Descripción principal
-                if (data.desc_principal && document.getElementById('db-descripcion-principal')) {
-                    document.getElementById('db-descripcion-principal').textContent = data.desc_principal;
-                    console.log('Descripción principal actualizada');
-                } else {
-                    console.log("Falla el campo: desc_principal");
-                }
-                
-                // Título del formulario
-                if (data.from_title && document.getElementById('db-form-title')) {
-                    document.getElementById('db-form-title').textContent = data.from_title;
-                    console.log('Título del formulario actualizado');
-                } else {
-                    console.log("Falla el campo: from_title");
-                }
-                
-                // Título de FAQs
-                if (data.faq_title && document.getElementById('db-faq-title')) {
-                    document.getElementById('db-faq-title').textContent = data.faq_title;
-                    console.log('Título de FAQs actualizado');
-                } else {
-                    console.log("Falla el campo: faq_title");
-                }
-                
-                // Labels del formulario
-                if (data.lbl_name && document.getElementById('lbl-name')) {
-                    document.getElementById('lbl-name').textContent = data.lbl_name;
-                } else {
-                    console.log("Falla el campo: lbl_name");
-                }
-                
-                if (data.lbl_email && document.getElementById('lbl-email')) {
-                    document.getElementById('lbl-email').textContent = data.lbl_email;
-                } else {
-                    console.log("Falla el campo: lbl_email");
-                }
-                
-                if (data.lbl_phone && document.getElementById('lbl-phone')) {
-                    document.getElementById('lbl-phone').textContent = data.lbl_phone;
-                } else {
-                    console.log("Falla el campo: lbl_phone");
-                }
-                
-                if (data.lbl_message && document.getElementById('lbl-message')) {
-                    document.getElementById('lbl-message').textContent = data.lbl_message;
-                } else {
-                    console.log("Falla el campo: lbl_message");
-                }
-                
-                // Texto del botón
-                if (data.btn_enviar && document.getElementById('db-btn-text')) {
-                    document.getElementById('db-btn-text').textContent = data.btn_enviar;
-                } else {
-                    console.log("Falla el campo: btn_enviar");
-                }
-                
-                // Placeholders
-                if (data.placeholder_name && document.getElementById('input-name')) {
-                    document.getElementById('input-name').placeholder = data.placeholder_name;
-                } else {
-                    console.log("Falla el campo: placeholder_name");
-                }
-                
-                if (data.placeholder_email && document.getElementById('input-email')) {
-                    document.getElementById('input-email').placeholder = data.placeholder_email;
-                } else {
-                    console.log("Falla el campo: placeholder_email");
-                }
-                
-                if (data.placeholder_phone && document.getElementById('input-phone')) {
-                    document.getElementById('input-phone').placeholder = data.placeholder_phone;
-                } else {
-                    console.log("Falla el campo: placeholder_phone");
-                }
-                
-                if (data.placeholder_message && document.getElementById('input-message')) {
-                    document.getElementById('input-message').placeholder = data.placeholder_message;
-                } else {
-                    console.log("Falla el campo: placeholder_message");
-                }
-                
-                // Títulos de tarjetas - usar textos fijos ya que no existen en Firestore
-                // Los títulos se mantienen del HTML original
-                
-                // Datos de contacto
-                if (data.direccion && document.getElementById('info-direccion')) {
-                    document.getElementById('info-direccion').textContent = data.direccion;
-                } else {
-                    console.log("Falla el campo: direccion");
-                }
-                
-                if (data.email_contacto && document.getElementById('info-email')) {
-                    document.getElementById('info-email').textContent = data.email_contacto;
-                } else {
-                    console.log("Falla el campo: email_contacto");
-                }
-                
-                if (data.tel_contacto && document.getElementById('info-tel')) {
-                    document.getElementById('info-tel').textContent = data.tel_contacto;
-                } else {
-                    console.log("Falla el campo: tel_contacto");
-                }
-                
-                if (data.horario_tienda && document.getElementById('info-horario')) {
-                    document.getElementById('info-horario').textContent = data.horario_tienda;
-                } else {
-                    console.log("Falla el campo: horario_tienda");
-                }
-                
-                if (data.ubicacion_mapa && document.getElementById('db-map')) {
-                    document.getElementById('db-map').src = data.ubicacion_mapa;
-                } else {
-                    console.log("Falla el campo: ubicacion_mapa");
-                }
-                
-                console.log('Textos procesados desde Contact/contact_texts');
-                
-            } else {
-                const errorMsg = 'No se encontró el documento "contact_texts" en la colección "Contact"';
-                console.error('ERROR:', errorMsg);
-                mostrarErrorEnPantalla(errorMsg);
-            }
-        }, (error) => {
-            console.error('Error en listener de Contact/contact_texts:', error);
-            if (error.code === 'permission-denied') {
-                mostrarErrorEnPantalla('Permission denied: No tienes permisos para leer la colección Contact');
-            } else if (error.code === 'not-found') {
-                mostrarErrorEnPantalla('Collection not found: La colección Contact no existe');
-            }
-        });
-
-        // === LISTENER 2: ICONOS Y FONDOS desde Contact/Imágenes ===
-        console.log('Intentando acceder a Contact/Imágenes...');
-        
-        // Función para intentar con ambos nombres (con y sin tilde)
-        function cargarImagenes(nombreDocumento) {
-            const imagenesRef = doc(db, "Contact", nombreDocumento);
-            onSnapshot(imagenesRef, (imagenesSnap) => {
-                if (imagenesSnap.exists()) {
-                    const data = imagenesSnap.data();
-                    console.log(`Documento Contact/${nombreDocumento} encontrado (iconos y fondos)`);
-                    
-                    // Método para buscar campos ignorando espacios
-                    const getField = (name) => {
-                        return data[name] || 
-                               data[name.trim()] || 
-                               data[Object.keys(data).find(k => k.includes(name))] ||
-                               data[Object.keys(data).find(k => k.toLowerCase().includes(name.toLowerCase()))];
-                    };
-
-                    console.log("Campos de imágenes recibidos:", data);
-                    console.log('=== TODOS LOS CAMPOS DISPONIBLES EN IMÁGENES ===');
-                    console.log('Nombres de campos:', Object.keys(data));
-                    console.log('CAMPOS REALES:', Object.keys(data));
-                    console.log('Valores de campos problemáticos:', {
-                        'url_icono_tel': data.url_icono_tel,
-                        'url_icono_horario': data.url_icono_horario,
-                        'url_icono_enviar': data.url_icono_enviar,
-                        'url_btn_enviar': data.url_btn_enviar
-                    });
-                    
-                    console.log('Campos de iconos específicos:', {
-                        url_icono_lugar: !!data.url_icono_lugar,
-                        url_icono_tel: !!data.url_icono_tel,
-                        url_icono_email: !!data.url_icono_email,
-                        url_icono_horario: !!data.url_icono_horario,
-                        url_icono_enviar: !!data.url_icono_enviar,
-                        url_icono_pelota: !!data.url_icono_pelota
-                    });
-                    
-                    // Buscar posibles nombres alternativos para los campos que faltan
-                    console.log('Posibles nombres alternativos para teléfono:', 
-                        Object.keys(data).filter(key => key.toLowerCase().includes('tel')));
-                    console.log('Posibles nombres alternativos para horario:', 
-                        Object.keys(data).filter(key => key.toLowerCase().includes('horario')));
-                    console.log('Posibles nombres alternativos para enviar:', 
-                        Object.keys(data).filter(key => key.toLowerCase().includes('enviar')));
-                
-                // === ACTUALIZAR FONDOS ===
-                
-                // Fondo azul
-                if (data.url_fondo_azul && document.querySelector('.bg-blue')) {
-                    document.querySelector('.bg-blue').style.backgroundImage = `url(${data.url_fondo_azul})`;
-                    document.querySelector('.bg-blue').style.backgroundSize = 'cover';
-                    document.querySelector('.bg-blue').style.backgroundPosition = 'center';
-                    document.querySelector('.bg-blue').style.backgroundRepeat = 'no-repeat';
-                    console.log('Fondo azul aplicado');
-                } else {
-                    console.log("Falla el campo: url_fondo_azul");
-                }
-                
-                // Fondo rojo
-                if (data.url_fondo_rojo && document.querySelector('.bg-red')) {
-                    document.querySelector('.bg-red').style.backgroundImage = `url(${data.url_fondo_rojo})`;
-                    document.querySelector('.bg-red').style.backgroundSize = 'cover';
-                    document.querySelector('.bg-red').style.backgroundPosition = 'center';
-                    document.querySelector('.bg-red').style.backgroundRepeat = 'no-repeat';
-                    console.log('Fondo rojo aplicado');
-                } else {
-                    console.log("Falla el campo: url_fondo_rojo");
-                }
-                
-                // Fondo verde
-                if (data.url_fondo_verde && document.querySelector('.bg-green')) {
-                    document.querySelector('.bg-green').style.backgroundImage = `url(${data.url_fondo_verde})`;
-                    document.querySelector('.bg-green').style.backgroundSize = 'cover';
-                    document.querySelector('.bg-green').style.backgroundPosition = 'center';
-                    document.querySelector('.bg-green').style.backgroundRepeat = 'no-repeat';
-                    console.log('Fondo verde aplicado');
-                } else {
-                    console.log("Falla el campo: url_fondo_verde");
-                }
-                
-                // Fondo morado
-                if (data.url_fondo_morado && document.querySelector('.bg-purple')) {
-                    document.querySelector('.bg-purple').style.backgroundImage = `url(${data.url_fondo_morado})`;
-                    document.querySelector('.bg-purple').style.backgroundSize = 'cover';
-                    document.querySelector('.bg-purple').style.backgroundPosition = 'center';
-                    document.querySelector('.bg-purple').style.backgroundRepeat = 'no-repeat';
-                    console.log('Fondo morado aplicado');
-                } else {
-                    console.log("Falla el campo: url_fondo_morado");
-                }
-                
-                // Fondo FAQs
-                if (data.url_fondo_faqs && document.querySelector('.faq-container-general')) {
-                    document.querySelector('.faq-container-general').style.backgroundImage = `url(${data.url_fondo_faqs})`;
-                    document.querySelector('.faq-container-general').style.backgroundSize = 'cover';
-                    document.querySelector('.faq-container-general').style.backgroundPosition = 'center';
-                    document.querySelector('.faq-container-general').style.backgroundRepeat = 'no-repeat';
-                    document.querySelector('.faq-container-general').style.padding = '30px';
-                    console.log('Fondo FAQs aplicado');
-                } else {
-                    console.log("Falla el campo: url_fondo_faqs");
-                }
-                
-                // Fondo blanco para FAQs
-                if (data.url_fondo_blanco) {
-                    const faqItems = document.querySelectorAll('.faq-item-white');
-                    faqItems.forEach(item => {
-                        item.style.backgroundImage = `url(${data.url_fondo_blanco})`;
-                        item.style.backgroundSize = 'cover';
-                        item.style.backgroundPosition = 'center';
-                        item.style.backgroundRepeat = 'no-repeat';
-                        item.style.padding = '30px';
-                        item.style.margin = '0';
-                    });
-                    console.log('Fondo blanco aplicado a FAQs');
-                } else {
-                    console.log("Falla el campo: url_fondo_blanco");
-                }
-                
-                // === ACTUALIZAR ICONOS ===
-                
-                // Icono lugar
-                if (data.url_icono_lugar && document.getElementById('img-lugar')) {
-                    document.getElementById('img-lugar').src = data.url_icono_lugar;
-                    console.log('Icono lugar actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_lugar");
-                }
-                
-                // Icono teléfono usando getField
-                if (getField('url_icono_tel') && document.getElementById('img-tel')) {
-                    document.getElementById('img-tel').src = getField('url_icono_tel');
-                    console.log('Icono teléfono actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_tel");
-                }
-                
-                // Icono email de la tarjeta de contacto (blanco)
-                if (getField('url_icono_email_blanco') && document.getElementById('img-email-card')) {
-                    document.getElementById('img-email-card').src = getField('url_icono_email_blanco');
-                    console.log('Icono email tarjeta actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_email_blanco");
-                }
-                
-                // Icono email de la cabecera
-                if (getField('url_icono_email') && document.getElementById('img-email-header')) {
-                    document.getElementById('img-email-header').src = getField('url_icono_email');
-                    console.log('Icono email header actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_email");
-                }
-                
-                // Icono horario usando getField
-                if (getField('url_icono_horario') && document.getElementById('img-horario')) {
-                    document.getElementById('img-horario').src = getField('url_icono_horario');
-                    console.log('Icono horario actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_horario");
-                }
-                
-                // Icono pelota principal
-                if (data.url_icono_pelota && document.getElementById('img-pelota')) {
-                    document.getElementById('img-pelota').src = data.url_icono_pelota;
-                    console.log('Pelota principal actualizada');
-                } else {
-                    console.log("Falla el campo: url_icono_pelota (principal)");
-                }
-                
-                // Icono pelota FAQ (mismo campo)
-                if (data.url_icono_pelota && document.getElementById('img-pelota-faq')) {
-                    document.getElementById('img-pelota-faq').src = data.url_icono_pelota;
-                    console.log('Pelota FAQ actualizada');
-                } else {
-                    console.log("Falla el campo: url_icono_pelota (FAQ)");
-                }
-                
-                // Icono mail header (usando url_icono_email)
-                if (data.url_icono_email && document.getElementById('img-mail-header')) {
-                    document.getElementById('img-mail-header').src = data.url_icono_email;
-                    console.log('Icono mail header actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_email (mail header)");
-                }
-                
-                // Icono del botón enviar usando getField
-                if (getField('url_icono_enviar') && document.getElementById('img-btn-enviar')) {
-                    document.getElementById('img-btn-enviar').src = getField('url_icono_enviar');
-                    document.getElementById('img-btn-enviar').style.width = '20px';
-                    document.getElementById('img-btn-enviar').style.height = '20px';
-                    console.log('Icono botón enviar actualizado');
-                } else {
-                    console.log("Falla el campo: url_icono_enviar");
-                }
-                
-                // Fondo del botón enviar usando getField
-                if (getField('url_btn_enviar') && document.getElementById('db-btn-enviar')) {
-                    document.getElementById('db-btn-enviar').style.backgroundImage = `url(${getField('url_btn_enviar')})`;
-                    document.getElementById('db-btn-enviar').style.backgroundSize = 'cover';
-                    document.getElementById('db-btn-enviar').style.backgroundPosition = 'center';
-                    document.getElementById('db-btn-enviar').style.backgroundRepeat = 'no-repeat';
-                    document.getElementById('db-btn-enviar').style.color = 'white';
-                    console.log('Fondo botón enviar aplicado');
-                } else {
-                    console.log("Falla el campo: url_btn_enviar");
-                }
-                
-                console.log(`Iconos y fondos procesados desde Contact/${nombreDocumento}`);
-                
-                } else {
-                    const errorMsg = `No se encontró el documento "${nombreDocumento}" en la colección "Contact"`;
-                    console.error('ERROR:', errorMsg);
-                    mostrarErrorEnPantalla(errorMsg);
-                }
-            }, (error) => {
-                console.error(`Error en listener de Contact/${nombreDocumento}:`, error);
-                if (error.code === 'permission-denied') {
-                    mostrarErrorEnPantalla('Permission denied: No tienes permisos para leer la colección Contact');
-                } else if (error.code === 'not-found') {
-                    mostrarErrorEnPantalla('Collection not found: La colección Contact no existe');
-                }
-            });
-        }
-
-        // Intentar primero con "Imágenes" (con tilde)
-        cargarImagenes("Imágenes");
-        
-        // Si no funciona, el usuario puede ver el error y saber que debe probar "Imagenes"
-        console.log('Si falla "Imágenes", el documento podría llamarse "Imagenes" (sin tilde)');
-    }
-
-    // Form submission handler with Firebase v9
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formMessage = document.getElementById('formMessage');
-        const submitButton = document.querySelector('.btn-enviar');
-        
-        // Get form values
-        const formData = {
-            name: document.getElementById('input-name').value,
-            email: document.getElementById('input-email').value,
-            phone: document.getElementById('input-phone').value,
-            message: document.getElementById('input-message').value
-        };
-        
-        // Disable submit button and show loading
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<svg class="svg-btn" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/></svg> Enviando...';
-        
-        try {
-            // Save to Firestore with v9 syntax
-            const docRef = await addDoc(collection(db, 'contacts'), {
-                ...formData,
-                status: 'pending',
-                createdAt: new Date(),
-                source: 'web-form'
-            });
-            
-            // Show success message
-            formMessage.style.display = 'block';
-            formMessage.style.backgroundColor = '#d4edda';
-            formMessage.style.color = '#155724';
-            formMessage.style.border = '1px solid #c3e6cb';
-            formMessage.innerHTML = '¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.';
-            
-            // Reset form
-            document.getElementById('contactForm').reset();
-            
-            console.log('Contact form saved with ID:', docRef.id);
-            
-        } catch (error) {
-            console.error('Error saving contact form:', error);
-            
-            // Show error message
-            formMessage.style.display = 'block';
-            formMessage.style.backgroundColor = '#f8d7da';
-            formMessage.style.color = '#721c24';
-            formMessage.style.border = '1px solid #f5c6cb';
-            formMessage.innerHTML = 'Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
-        } finally {
-            // Re-enable submit button
-            submitButton.disabled = false;
-            submitButton.innerHTML = '<svg class="svg-btn" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Enviar Mensaje';
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-        }
-    });
-
-    // Esperar a que el DOM esté completamente cargado antes de cargar los datos
-    document.addEventListener('DOMContentLoaded', function() {
-        // Pequeña espera para asegurar que Firebase esté inicializado
-        setTimeout(() => {
-            cargarDatosDesdeFirebase();
-        }, 500);
-    });
-
-    // También intentar cargar los datos inmediatamente por si el DOM ya está listo
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', cargarDatosDesdeFirebase);
-    } else {
-        setTimeout(cargarDatosDesdeFirebase, 100);
-    }
-</script>
 <script>
   fetch("/webTienda1daw/Footer/footer.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;
+      import("/webTienda1daw/Footer/JS-Footer/firestorefooter.js");
     });
 </script>
 <script>

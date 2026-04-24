@@ -120,8 +120,7 @@
         <div class="Texto">
             <h3 id="TituloCalidad1" class="title"></h3>
             <p id="SubtituloCalidad1" class="subtitle">
-                Traemos los mejores productos directamente desde Latinoamérica. 
-                Ingredientes frescos y auténticos para que cocines como en tu tierra.
+            
             </p>
         </div>
     </div>
@@ -133,9 +132,9 @@
     .then(response => response.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;
+      import("/webTienda1daw/Footer/JS-Footer/firestorefooter.js");
     });
 </script>
-
 <!-- Scripts de Firebase -->
 <script type="module" src="firebase.js"></script>
 <script type="module" src="productoslatinos.js"></script>
