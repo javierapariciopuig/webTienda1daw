@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Latinos</title>
+    <link rel="stylesheet" href="Estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabecera -->
+        <header class="header">
+            <div class="header-left">
+                <div class="title-container">
+                    <div class="flag-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                          <line x1="4" y1="22" x2="4" y2="15"></line>
+                        </svg>
+                    </div>
+                    <div class="title-text">
+                        <h1 class="main-title">Productos Latinos</h1>
+                        <p class="subtitle">Gestiona el catálogo de productos latinos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn-new-product" onclick="showNewProductModal()">
+                    <i class="fas fa-plus"></i> Nuevo Producto
+                </button>
+            </div>
+        </header>
+
+        <!-- Buscador y Filtros -->
+        <section class="search-filter-section">
+            <!-- Buscador -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Buscar productos latinos..." id="searchInput">
+                </div>
+            </div>
+
+            <!-- Barra de categorías -->
+            <div class="categories-container">
+                <div class="categories-bar">
+                    <button class="category-btn active" data-category="alimentacion" onclick="filterCategoryLatino('alimentacion', event)">
+                        ALIMENTACIÓN
+                    </button>
+                    <button class="category-btn" data-category="bebidas" onclick="filterCategoryLatino('bebidas', event)">
+                        BEBIDAS
+                    </button>
+                    <button class="category-btn" data-category="casero" onclick="filterCategoryLatino('casero', event)">
+                        CASERO
+                    </button>
+                    <button class="category-btn" data-category="dulce" onclick="filterCategoryLatino('dulce', event)">
+                        DULCE
+                    </button>
+                                        <button class="category-btn" data-category="snacks" onclick="filterCategoryLatino('snacks', event)">
+                        SNACKS
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Productos -->
+        <main class="products-section">
+            <div class="products-grid" id="productsGrid">
+                <!-- Producto 1 -->
+                <article class="product-card" data-category="alimentacion" data-id="1">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=200&fit=crop&crop=center" alt="Tacos Mexicanos" class="product-image">
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3 class="product-title">Tacos Mexicanos</h3>
+                            <span class="category-badge">ALIMENTACIÓN</span>
+                        </div>
+                        <p class="product-price">3.99€</p>
+                        <div class="product-actions">
+                            <button class="btn-edit" onclick="editProduct(1)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(1, 'Tacos Mexicanos')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card" data-category="bebidas" data-id="2">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&h=200&fit=crop&crop=center" alt="Café Colombiano" class="product-image">
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3 class="product-title">Café Colombiano</h3>
+                            <span class="category-badge">BEBIDAS</span>
+                        </div>
+                        <p class="product-price">8.99€</p>
+                        <div class="product-actions">
+                            <button class="btn-edit" onclick="editProduct(2)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(2, 'Café Colombiano')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card" data-category="dulce" data-id="3">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" alt="Dulce de Leche" class="product-image">
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3 class="product-title">Dulce de Leche</h3>
+                            <span class="category-badge">DULCE</span>
+                        </div>
+                        <p class="product-price">4.75€</p>
+                        <div class="product-actions">
+                            <button class="btn-edit" onclick="editProduct(3)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(3, 'Dulce de Leche')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card" data-category="casero" data-id="4">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=200&fit=crop&crop=center" alt="Arepas Venezolanas" class="product-image">
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3 class="product-title">Arepas Venezolanas</h3>
+                            <span class="category-badge">CASERO</span>
+                        </div>
+                        <p class="product-price">2.50€</p>
+                        <div class="product-actions">
+                            <button class="btn-edit" onclick="editProduct(4)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(4, 'Arepas Venezolanas')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="product-card" data-category="snacks" data-id="5">
+                    <img src="https://images.unsplash.com/photo-1565958011703-38f3e0b4b7c6?w=300&h=200&fit=crop&crop=center" alt="Chips de Plátano" class="product-image">
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3 class="product-title">Chips de Plátano</h3>
+                            <span class="category-badge">SNACKS</span>
+                        </div>
+                        <p class="product-price">1.99€</p>
+                        <div class="product-actions">
+                            <button class="btn-edit" onclick="editProduct(5)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(5, 'Chips de Plátano')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="product-card" data-category="alimentacion" data-id="6">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575ff39e?w=300&h=200&fit=crop&crop=center" alt="Empanadas Argentinas" class="product-image">
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3 class="product-title">Empanadas Argentinas</h3>
+                            <span class="category-badge">ALIMENTACIÓN</span>
+                        </div>
+                        <p class="product-price">5.25€</p>
+                        <div class="product-actions">
+                            <button class="btn-edit" onclick="editProduct(6)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(6, 'Empanadas Argentinas')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para nuevo/editar producto -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nuevo Producto</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="product-form" id="productForm">
+                <div class="form-group">
+                    <label for="productName">Nombre del Producto</label>
+                    <input type="text" id="productName" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Categoría</label>
+                    <select id="productCategory" name="categoria" required>
+                        <option value="alimentacion">ALIMENTACIÓN</option>
+                        <option value="bebidas">BEBIDAS</option>
+                        <option value="casero">CASERO</option>
+                        <option value="dulce">DULCE</option>
+                        <option value="snacks">SNACKS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Precio (€)</label>
+                    <input type="number" id="productPrice" name="precio" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">Imagen (URL)</label>
+                    <input type="text" id="productImage" name="imagen" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn-save">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="firebaseConfig.js"></script>
+    <script src="Lógica.js"></script>
+</body>
+</html>

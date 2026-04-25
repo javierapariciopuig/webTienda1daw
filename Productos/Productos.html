@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Cabecera -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="main-title">Gestión de Productos</h1>
+            <p class="subtitle">Administra tu catálogo de productos</p>
+        </div>
+        <div class="header-right">
+            <button class="btn-new-product">
+                <i class="fas fa-plus"></i> Nuevo Producto
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main class="main-container">
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Buscar productos...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros de categorías -->
+        <div class="categories-container">
+            <div class="categories-bar">
+                <button class="category-btn active" data-category="todos" onclick="filterCategory('todos', event)">
+                    ALIMENTACIÓN
+                </button>
+                <button class="category-btn" data-category="panaderia" onclick="filterCategory('panaderia', event)">
+                    PANADERÍA
+                </button>
+                <button class="category-btn" data-category="limpieza" onclick="filterCategory('limpieza', event)">
+                    LIMPIEZA
+                </button>
+                <button class="category-btn" data-category="higiene" onclick="filterCategory('higiene', event)">
+                    HIGIENE
+                </button>
+                <button class="category-btn" data-category="bebidas" onclick="filterCategory('bebidas', event)">
+                    BEBIDAS
+                </button>
+                <button class="category-btn" data-category="lacteos" onclick="filterCategory('lacteos', event)">
+                    LÁCTEOS
+                </button>
+                <button class="category-btn" data-category="snacks" onclick="filterCategory('snacks', event)">
+                    SNACKS
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid de productos -->
+        <div class="products-grid">
+            <!-- ✅ Grid vacío - Los productos se cargarán dinámicamente desde Firebase -->
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="firebaseConfig.js"></script>
+    <script src="Script.js"></script>
+</body>
+</html>
