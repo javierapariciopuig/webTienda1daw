@@ -46,12 +46,20 @@ async function cargarHeader() {
 
 // Menu toggle functionality
 function initializeMenuToggle() {
+    console.log('Initializing menu toggle...');
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.querySelector('.nav-menu');
     
+    console.log('menuToggle:', menuToggle);
+    console.log('navMenu:', navMenu);
+    
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
+        console.log('Both elements found, adding event listeners...');
+        menuToggle.addEventListener('click', function(e) {
+            console.log('Menu toggle clicked!');
+            e.preventDefault();
             navMenu.classList.toggle('active');
+            console.log('Menu active class:', navMenu.classList.contains('active'));
             
             // Animate hamburger menu
             const spans = menuToggle.querySelectorAll('span');
@@ -87,7 +95,17 @@ function initializeMenuToggle() {
                 spans[2].style.transform = 'none';
             }
         });
+    } else {
+        console.error('Menu elements not found:', { menuToggle, navMenu });
     }
+}
+
+// Fallback: Try to initialize menu toggle after DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeMenuToggle);
+} else {
+    // DOM is already ready
+    setTimeout(initializeMenuToggle, 100);
 }
 
 cargarHeader();
