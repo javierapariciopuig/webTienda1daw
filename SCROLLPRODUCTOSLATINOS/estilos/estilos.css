@@ -4,6 +4,19 @@ body {
   margin: 0;
   background: #fafafa;
   color: #333;
+  padding-top: 90px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 70px;
+  }
 }
 
 /* BOTÓN VOLVER */
@@ -16,13 +29,41 @@ body {
   font-size: 16px;
 }
 
+@media (max-width: 768px) {
+  .volver {
+    margin: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .volver {
+    margin: 10px;
+    font-size: 13px;
+  }
+}
+
 /* TÍTULO */
 #titulo-categoria {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
   margin-top: 10px;
-  color: #0004ff;;
+  color: #0004ff;
+}
+
+@media (max-width: 768px) {
+  #titulo-categoria {
+    font-size: 2.5rem;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  #titulo-categoria {
+    font-size: 2rem;
+    margin-top: 0;
+  }
 }
 
 /* SUBTÍTULO */
@@ -31,6 +72,20 @@ body {
   font-size: 16px;
   color: #666;
   margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .descripcion-categoria {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .descripcion-categoria {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
 }
 
 /* GRID DE PRODUCTOS */
@@ -43,6 +98,30 @@ body {
   padding: 0 20px 40px;
 }
 
+@media (max-width: 1024px) {
+  .contenedor-productos {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 0 15px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-productos {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 10px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-productos {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 5px 20px;
+  }
+}
+
 /* TARJETA */
 .producto {
   background: white;
@@ -50,6 +129,20 @@ body {
   padding: 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .producto {
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .producto {
+    padding: 10px;
+    border-radius: 8px;
+  }
 }
 
 .producto:hover {
@@ -65,11 +158,39 @@ body {
   border-radius: 10px;
 }
 
+@media (max-width: 768px) {
+  .producto img {
+    height: 150px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .producto img {
+    height: 130px;
+    border-radius: 6px;
+  }
+}
+
 /* NOMBRE */
 .producto h3 {
   margin: 12px 0 6px;
   font-size: 20px;
   color: #0004ff;
+}
+
+@media (max-width: 768px) {
+  .producto h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .producto h3 {
+    font-size: 16px;
+    margin: 8px 0 4px;
+  }
 }
 
 /* DESCRIPCIÓN */
@@ -79,12 +200,38 @@ body {
   color: #666;
 }
 
+@media (max-width: 768px) {
+  .producto p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .producto p {
+    font-size: 12px;
+  }
+}
+
 /* PRECIO */
 .precio {
   margin-top: 12px;
   font-size: 18px;
   font-weight: bold;
   color: #0004ff;
+}
+
+@media (max-width: 768px) {
+  .precio {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .precio {
+    font-size: 14px;
+    margin-top: 8px;
+  }
 }
 /*PELOTA DE BASEBALL DESPUÉS DEL TÍTULO*/
 #titulo-categoria::after {
@@ -96,6 +243,20 @@ body {
   height: 150px;
   object-fit: contain;
   background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .producto img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .producto img {
+    width: 100px;
+    height: 100px;
+  }
 }
 .producto {
   display: flex;
